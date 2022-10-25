@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operation_system.Controller.CPUSchedulingController">
+   <children>
+      <TableView fx:id="ReadyTable" layoutX="276.0" layoutY="30.0" prefHeight="500.0" prefWidth="250.0">
+        <columns>
+          <TableColumn fx:id="Ready_ProgressName" prefWidth="62.5" text="进程名" />
+          <TableColumn fx:id="Ready_PID" prefWidth="62.5" text="PID" />
+            <TableColumn fx:id="Ready_RunTime" prefWidth="62.5" text="运行时间" />
+            <TableColumn fx:id="Ready_Priority" prefWidth="62.5" text="优先级" />
+        </columns>
+      </TableView>
+      <TableView fx:id="ReserveTable" layoutY="30.0" prefHeight="300.0" prefWidth="250.0">
+        <columns>
+          <TableColumn fx:id="Reserve_ProgressName" prefWidth="62.5" text="进程名" />
+          <TableColumn fx:id="Reserve_PID" prefWidth="62.5" text="PID" />
+            <TableColumn fx:id="Reserve_RunTime" prefWidth="62.5" text="运行时间" />
+            <TableColumn fx:id="Reserve_Priority" prefWidth="62.5" text="优先级" />
+        </columns>
+      </TableView>
+      <TableView fx:id="HangTable" layoutY="360.0" prefHeight="170.0" prefWidth="250.0">
+        <columns>
+          <TableColumn fx:id="Hang_ProgressName" prefWidth="62.5" text="进程名" />
+          <TableColumn fx:id="Hang_PID" prefWidth="62.5" text="PID" />
+            <TableColumn fx:id="Hang_RunTime" prefWidth="62.5" text="运行时间" />
+            <TableColumn fx:id="Hang_Priority" prefWidth="62.5" text="优先级" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" prefHeight="30.0" prefWidth="100.0" text="后备队列" textFill="#211f1f" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="-1.0" prefHeight="30.0" prefWidth="100.0" text="就绪队列" textFill="#211f1f" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="330.0" prefHeight="30.0" prefWidth="100.0" text="挂起队列" textFill="#211f1f" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="625.0" prefHeight="30.0" prefWidth="100.0" text="终止队列" textFill="#211f1f" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+       <Button layoutX="175.0" layoutY="578.0" mnemonicParsing="false" onAction="#AddProgress" text="新增进程" />
+       <Button layoutX="295.0" layoutY="578.0" mnemonicParsing="false" onAction="#HangUp" text="挂起进程" />
+       <Button layoutX="411.0" layoutY="578.0" mnemonicParsing="false" onAction="#RelieveHang" text="解挂进程" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="640.0" layoutY="555.0" mnemonicParsing="false" onAction="#Run" prefWidth="70.0" text="开始运行" textAlignment="JUSTIFY" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="730.0" layoutY="555.0" mnemonicParsing="false" onAction="#End" prefWidth="70.0" text="结束运行" />
+      <TableView fx:id="RunningTable" layoutX="550.0" layoutY="280.0" prefHeight="250.0" prefWidth="250.0">
+         <columns>
+            <TableColumn fx:id="Running_ProgressName" prefWidth="62.5" text="进程名" />
+            <TableColumn fx:id="Running_PID" prefWidth="62.5" text="PID" />
+            <TableColumn fx:id="Running_RunTime" prefWidth="62.5" text="运行时间" />
+            <TableColumn fx:id="Running_Priority" prefWidth="62.5" text="优先级" />
+         </columns>
+      </TableView>
+      <TableView fx:id="TerminateTable" layoutX="550.0" layoutY="30.0" prefHeight="200.0" prefWidth="250.0">
+         <columns>
+            <TableColumn fx:id="Terminate_ProgressName" prefWidth="62.5" text="进程名" />
+            <TableColumn fx:id="Terminate_PID" prefWidth="62.5" text="PID" />
+            <TableColumn fx:id="Terminate_RunTime" prefWidth="62.5" text="运行时间" />
+            <TableColumn fx:id="Terminate_Priority" prefWidth="62.5" text="优先级" />
+         </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="625.0" layoutY="250.0" prefHeight="30.0" prefWidth="100.0" text="运行队列">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="550.0" layoutY="555.0" mnemonicParsing="false" onAction="#AddToRun" prefWidth="70.0" text="添加" />
+   </children>
+</AnchorPane>
